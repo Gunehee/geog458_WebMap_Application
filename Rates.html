@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Interactive Web Mapping</title>
+    <title>US Covid rates in 2020</title>
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
     <link href="https://api.mapbox.com/mapbox-gl-js/v2.5.0/mapbox-gl.css" rel="stylesheet">
     <script src="https://api.mapbox.com/mapbox-gl-js/v2.5.0/mapbox-gl.js"></script>
@@ -87,9 +87,9 @@
 <body>
     <div id="map"></div>
     <div class='map-overlay' id='features'>
-        <h2>US population density</h2>
+        <h2>US Covid rates 2020</h2>
         <div id='text-description'>
-            <p>Hover over a state!</p>
+            <p>Hover over a Covid!</p>
         </div>
     </div>
     <div class='map-overlay' id='legend'></div>
@@ -106,38 +106,40 @@
 
         // load data and add as layer
         async function geojsonFetch() {
-            let response = await fetch('assets/state_data.geojson');
+            let response = await fetch('assets/us-covid-2020-rates.geojson');
             let state_data = await response.json();
 
             map.on('load', function loadingData() {
-                map.addSource('state_data', {
+                map.addSource('us-covid-2020-rates', {
                     type: 'geojson',
                     data: state_data
                 });
 
                 map.addLayer({
-                    'id': 'state_data_layer',
+                    'id': 'us-covid-2020-rates-layer',
                     'type': 'fill',
-                    'source': 'state_data',
+                    'source': 'us-covid-2020-rates',
                     'paint': {
                         'fill-color': [
                             'step',
-                            ['get', 'density'],
-                            '#FFEDA0',   // stop_output_0
+                            ['get', 'rates'],
+                            '#FFF5EB',   // stop_output_0
                             10,          // stop_input_0
-                            '#FED976',   // stop_output_1
+                            '#FEE6CE',   // stop_output_1
                             20,          // stop_input_1
-                            '#FEB24C',   // stop_output_2
-                            50,          // stop_input_2
-                            '#FD8D3C',   // stop_output_3
-                            100,         // stop_input_3
-                            '#FC4E2A',   // stop_output_4
-                            200,         // stop_input_4
-                            '#E31A1C',   // stop_output_5
-                            500,         // stop_input_5
-                            '#BD0026',   // stop_output_6
-                            1000,        // stop_input_6
-                            "#800026"    // stop_output_7
+                            '#FDD0A2',   // stop_output_2
+                            30,          // stop_input_2
+                            '#FDAE6B',   // stop_output_3
+                            40,         // stop_input_3
+                            '#FD8D3C',   // stop_output_4
+                            50,         // stop_input_4
+                            '#F16913',   // stop_output_5
+                            60,         // stop_input_5
+                            '#D94801',   // stop_output_6
+                            70,        // stop_input_6
+                            '#A63603',    // stop_output_7
+                            100,       // stop_input_7  
+                            "#7F2704"    // stop_output_8
                         ],
                         'fill-outline-color': '#BBBBBB',
                         'fill-opacity': 0.7,
@@ -147,27 +149,29 @@
                 const layers = [
                     '0-9',
                     '10-19',
-                    '20-49',
-                    '50-99',
-                    '100-199',
-                    '200-499',
-                    '500-999',
-                    '1000 and more'
+                    '20-29',
+                    '30-39',
+                    '40-49',
+                    '50-59',
+                    '60-69',
+                    '70-99',
+                    '100'
                 ];
                 const colors = [
-                    '#FFEDA070',
-                    '#FED97670',
-                    '#FEB24C70',
-                    '#FD8D3C70',
-                    '#FC4E2A70',
-                    '#E31A1C70',
-                    '#BD002670',
-                    '#80002670'
+                    '#FFF5EB',
+                    '#FEE6CE',
+                    '#FDD0A2',
+                    '#FDAE6B',
+                    '#FD8D3C',
+                    '#F16913',
+                    '#D94801',
+                    '#A63603',
+                    '#7F2704'
                 ];
 
                 // create legend
                 const legend = document.getElementById('legend');
-                legend.innerHTML = "<b>Population Density<br>(people/sq.mi.)</b><br><br>";
+                legend.innerHTML = "<b>US Covid rates<br>(rates/county)</b><br><br>";
 
 
                 layers.forEach((layer, i) => {
@@ -187,11 +191,11 @@
 
             map.on('mousemove', ({point}) => {
                 const state = map.queryRenderedFeatures(point, {
-                    layers: ['state_data_layer']
+                    layers: ['us-covid-2020-rates-layer']
                 });
                 document.getElementById('text-description').innerHTML = state.length ?
-                    `<h3>${state[0].properties.name}</h3><p><strong><em>${state[0].properties.density}</strong> people per square mile</em></p>` :
-                    `<p>Hover over a state!</p>`;
+                    `<h3>${state[0].properties.county}</h3><p><strong><em>${state[0].properties.rates}</strong> rates per county </em></p>` :
+                    `<p>Hover over a Covid!</p>`;
             });
         }
 

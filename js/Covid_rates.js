@@ -5,7 +5,7 @@ let map = new mapboxgl.Map({
     style: 'mapbox://styles/mapbox/dark-v10',
     zoom: 5, // starting zoom
     minZoom: 4, // minimum zoom level of the map
-    center: [138, 38] // starting center
+    center: [-98.58, 39.83] // starting center
 });
 const grades = [4, 5, 6],
     colors = ['rgb(208,209,230)', 'rgb(103,169,207)', 'rgb(1,108,89)'],
@@ -15,14 +15,14 @@ const grades = [4, 5, 6],
 map.on('load', () => { //simplifying the function statement: arrow with brackets to define a function
     // when loading a geojson, there are two steps
     // add a source of the data and then add the layer out of the source
-    map.addSource('US-Covid-2020-rates', {
+    map.addSource('us-covid-2020-rates', {
         type: 'geojson',
-        data: 'assets/us-covid-2020-rates.json'
+        data: 'assets/us-covid-2020-rates.geojson'
     });
     map.addLayer({
-            'id': 'earthquakes-point',
+            'id': 'us-covid-2020-rates-layer',
             'type': 'circle',
-            'source': 'earthquakes',
+            'source': 'us-covid-2020-rates',
             'paint': {
                 // increase the radii of the circle as the zoom level and dbh value increases
                 'circle-radius': {
@@ -48,7 +48,7 @@ map.on('load', () => { //simplifying the function statement: arrow with brackets
         }
     );
     // click on tree to view magnitude in a popup
-    map.on('click', 'earthquakes-point', (event) => {
+    map.on('click', 'us-covid-2020-rates-layer', (event) => {
         new mapboxgl.Popup()
             .setLngLat(event.features[0].geometry.coordinates)
             .setHTML(`<strong>Magnitude:</strong> ${event.features[0].properties.mag}`)
