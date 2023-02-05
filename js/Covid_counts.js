@@ -7,9 +7,9 @@ let map = new mapboxgl.Map({
     minZoom: 4, // minimum zoom level of the map
     center: [-98.58, 39.83] // starting center
 });
-const grades = [4, 5, 6],
-    colors = ['rgb(208,209,230)', 'rgb(103,169,207)', 'rgb(1,108,89)'],
-    radii = [5, 15, 20];
+const grades = [100, 1000, 10000],
+    colors = ['rgb(208,209,230)', 'rgb(103,169,207)', 'rgb(235,52,232)'],
+    radii = [5, 10, 15];
 //load data to the map as new layers.
 //map.on('load', function loadingData() {
 map.on('load', () => { //simplifying the function statement: arrow with brackets to define a function
@@ -26,7 +26,7 @@ map.on('load', () => { //simplifying the function statement: arrow with brackets
             'paint': {
                 // increase the radii of the circle as the zoom level and dbh value increases
                 'circle-radius': {
-                    'property': 'mag',
+                    'property': 'cases',
                     'stops': [
                         [grades[0], radii[0]],
                         [grades[1], radii[1]],
@@ -34,7 +34,7 @@ map.on('load', () => { //simplifying the function statement: arrow with brackets
                     ]
                 },
                 'circle-color': {
-                    'property': 'mag',
+                    'property': 'cases',
                     'stops': [
                         [grades[0], colors[0]],
                         [grades[1], colors[1]],
@@ -51,14 +51,14 @@ map.on('load', () => { //simplifying the function statement: arrow with brackets
     map.on('click', 'us-covid-2020-counts-point', (event) => {
         new mapboxgl.Popup()
             .setLngLat(event.features[0].geometry.coordinates)
-            .setHTML(`<strong>Magnitude:</strong> ${event.features[0].properties.mag}`)
+            .setHTML(`<strong>cases:</strong> ${event.features[0].properties.cases}`)
             .addTo(map);
     });
 });
 // create legend
 const legend = document.getElementById('legend');
 //set up legend grades and labels
-var labels = ['<strong>Magnitude</strong>'],
+var labels = ['<strong>cases</strong>'],
     vbreak;
 //iterate through grades and create a scaled circle and label for each
 for (var i = 0; i < grades.length; i++) {
