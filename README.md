@@ -3,13 +3,13 @@ These two are thematic maps of COVID-19 in 2020. Map 1 is indicating the US Covi
 
 # US Covid rates map in 2020 - Map 1
 
-![Rates map](img/Map 1 rates map.png)
+![Rates map](https://github.com/Gunehee/geog458_Lab3_WebMap/blob/main/img/Map%201%20rates%20map.png)
 
 [Here](https://github.com/Gunehee/geog458_Lab3_WebMap/blob/main/map1.html) is a url for the map 1 (Rates map) html code
 
 # US Covid counts map in 2020 - Map 2
 
-![Counts map](img/Map 2 counts map.png)
+![Counts map](https://github.com/Gunehee/geog458_Lab3_WebMap/blob/main/img/Map%202%20counts%20map.png)
 
 [Here](https://github.com/Gunehee/geog458_Lab3_WebMap/blob/main/map2.html) is a url for the map 2 (Counts map) html code
 
