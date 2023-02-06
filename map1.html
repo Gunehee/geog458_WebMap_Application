@@ -5,8 +5,8 @@
     <meta charset="utf-8">
     <title>US Covid rates in 2020</title>
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
-    <link href="https://api.mapbox.com/mapbox-gl-js/v2.5.0/mapbox-gl.css" rel="stylesheet">
-    <script src="https://api.mapbox.com/mapbox-gl-js/v2.5.0/mapbox-gl.js"></script>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.12.0/mapbox-gl.css" rel="stylesheet">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.12.0/mapbox-gl.js"></script>
     <style>
         h2,
         h3 {
@@ -107,12 +107,12 @@
         // load data and add as layer
         async function geojsonFetch() {
             let response = await fetch('assets/us-covid-2020-rates.geojson');
-            let state_data = await response.json();
+            let covid_data = await response.json();
 
             map.on('load', function loadingData() {
                 map.addSource('us-covid-2020-rates', {
                     type: 'geojson',
-                    data: state_data
+                    data: covid_data
                 });
 
                 map.addLayer({
@@ -130,13 +130,13 @@
                             '#FDD0A2',   // stop_output_2
                             30,          // stop_input_2
                             '#FDAE6B',   // stop_output_3
-                            40,         // stop_input_3
+                            50,         // stop_input_3
                             '#FD8D3C',   // stop_output_4
-                            50,         // stop_input_4
+                            60,         // stop_input_4
                             '#F16913',   // stop_output_5
-                            60,         // stop_input_5
+                            70,         // stop_input_5
                             '#D94801',   // stop_output_6
-                            70,        // stop_input_6
+                            80,        // stop_input_6
                             '#A63603',    // stop_output_7
                             100,       // stop_input_7  
                             "#7F2704"    // stop_output_8
@@ -147,15 +147,15 @@
                 });
 
                 const layers = [
-                    '0-9',
-                    '10-19',
-                    '20-29',
-                    '30-39',
-                    '40-49',
-                    '50-59',
-                    '60-69',
-                    '70-99',
-                    '100'
+                    '0-9 %',
+                    '10-19 %',
+                    '20-29 %',
+                    '30-49 %',
+                    '50-59 %',
+                    '60-69 %',
+                    '70-79 %',
+                    '80-99 %',
+                    '100 and more'
                 ];
                 const colors = [
                     '#FFF5EB',
@@ -171,7 +171,7 @@
 
                 // create legend
                 const legend = document.getElementById('legend');
-                legend.innerHTML = "<b>US Covid rates<br>(rates/county)</b><br><br>";
+                legend.innerHTML = "<b>US Covid rates of people<br>(rates/county)</b><br><br>";
 
 
                 layers.forEach((layer, i) => {
@@ -194,8 +194,8 @@
                     layers: ['us-covid-2020-rates-layer']
                 });
                 document.getElementById('text-description').innerHTML = state.length ?
-                    `<h3>${state[0].properties.county}</h3><p><strong><em>${state[0].properties.rates}</strong> rates per county </em></p>` :
-                    `<p>Hover over a Covid!</p>`;
+                    `<h3>${state[0].properties.county}</h3><p><strong><em>${state[0].properties.rates}</strong>% per county </em></p>` :
+                    `<p>Hover over a state!</p>`;
             });
         }
 

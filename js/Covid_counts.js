@@ -7,9 +7,9 @@ let map = new mapboxgl.Map({
     minZoom: 4, // minimum zoom level of the map
     center: [-98.58, 39.83] // starting center
 });
-const grades = [100, 1000, 10000],
-    colors = ['rgb(208,209,230)', 'rgb(103,169,207)', 'rgb(235,52,232)'],
-    radii = [5, 10, 15];
+const grades = [10, 100, 1000, 10000],
+    colors = ['rgb(149, 168, 50)', 'rgb(208,209,230)', 'rgb(103,169,207)', 'rgb(235,52,232)'],
+    radii = [5, 8, 12, 15];
 //load data to the map as new layers.
 //map.on('load', function loadingData() {
 map.on('load', () => { //simplifying the function statement: arrow with brackets to define a function
@@ -20,7 +20,7 @@ map.on('load', () => { //simplifying the function statement: arrow with brackets
         data: 'assets/us-covid-2020-counts.geojson'
     });
     map.addLayer({
-            'id': 'us-covid-2020-counts_point',
+            'id': 'us-covid-2020-counts-point',
             'type': 'circle',
             'source': 'us-covid-2020-counts',
             'paint': {
@@ -30,7 +30,8 @@ map.on('load', () => { //simplifying the function statement: arrow with brackets
                     'stops': [
                         [grades[0], radii[0]],
                         [grades[1], radii[1]],
-                        [grades[2], radii[2]]
+                        [grades[2], radii[2]],
+                        [grades[3], radii[3]]
                     ]
                 },
                 'circle-color': {
@@ -38,7 +39,8 @@ map.on('load', () => { //simplifying the function statement: arrow with brackets
                     'stops': [
                         [grades[0], colors[0]],
                         [grades[1], colors[1]],
-                        [grades[2], colors[2]]
+                        [grades[2], colors[2]],
+                        [grades[3], colors[3]]
                     ]
                 },
                 'circle-stroke-color': 'white',
