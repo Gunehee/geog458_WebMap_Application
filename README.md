@@ -1,6 +1,6 @@
 # Web Map Application
 This project is called a 'Web Map Application,' using a raw data set and visulaize two thematic maps of COVID-19 in 2020. Map 1 is indicating the US Covid rates in 2020 with layer by rates per county. The Map 2 indicating the US Covid counts in 2020 with different number of cases within a county. 
-The data I used for this project are came from The New York Times and [the U.S. Census Bureau](https://www.census.gov/geographies/mapping-files/time-series/geo/carto-boundary-file.html).
+The data I used for this project are came from [The New York Times](https://github.com/nytimes/covid-19-data/blob/43d32dde2f87bd4dafbb7d23f5d9e878124018b8/live/us-counties.csv) and [the U.S. Census Bureau](https://www.census.gov/geographies/mapping-files/time-series/geo/carto-boundary-file.html).
 
 # US Covid rates map in 2020 - Map 1
 
