@@ -4,7 +4,7 @@ The data I used for this project are came from [The New York Times](https://gith
 
 # US Covid rates map in 2020 - Map 1
 
-![Rates map](https://github.com/Gunehee/geog458_Lab3_WebMap/blob/main/img/Map%201%20rates%20map.png)
+![Rates map](https://github.com/Gunehee/geog458_WebMap_Application/blob/main/img/Map%201%20rates%20map.png)
 
 This is a choropleth map of the US using data in 2020 that visualize Covid rates in each county. The primary function of this map is to show the Covid cases through data elements by area. I used [the U.S. Census Bureau](https://data.census.gov/table?g=0100000US$050000&d=ACS+5-Year+Estimates+Data+Profiles&tid=ACSDP5Y2018.DP05&hidePreview=true) as a data source for map 1.
 
