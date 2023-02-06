@@ -5,7 +5,7 @@ These two are thematic maps of COVID-19 in 2020. Map 1 is indicating the US Covi
 
 ![Rates map](img/WordArt1.png)
 
-[Here](asset/https://github.com/Gunehee/geog458_Lab3_WebMap/blob/main/map1.html) is a url for the map 1 html code
+[Here](https://github.com/Gunehee/geog458_Lab3_WebMap/blob/main/map1.html) is a url for the map 1 html code
 
 # US Covid counts map in 2020 - Map 2
 
