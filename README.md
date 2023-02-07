@@ -20,3 +20,6 @@ This is a proportional symbols map that visulaize counts the number of cases in 
 
 # Acknowledgement
 Thanks to Haochen and other classmate who helped debugging code with this assignment.
+
+
+
