@@ -1,6 +1,7 @@
 mapboxgl.accessToken =
     'pk.eyJ1IjoiamFrb2J6aGFvIiwiYSI6ImNpcms2YWsyMzAwMmtmbG5icTFxZ3ZkdncifQ.P9MBej1xacybKcDN_jehvw';
 let map = new mapboxgl.Map({
+    'projection': 'albers',
     container: 'map', // container ID
     style: 'mapbox://styles/mapbox/dark-v10',
     zoom: 4, // starting zoom
