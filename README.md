@@ -6,7 +6,7 @@ The data I used for this project are came from [The New York Times](https://gith
 
 ![Rates map](https://github.com/Gunehee/geog458_WebMap_Application/blob/main/img/Map1Ratesmap.png)
 
-This is a choropleth map of the US using data in 2020 that visualize Covid rates in each county. Depending on the range of rates, each county has a different color. You can view the rate of people of each county. The primary function of this map is to show the Covid cases through data elements by area. I used [the U.S. Census Bureau](https://data.census.gov/table?g=0100000US$050000&d=ACS+5-Year+Estimates+Data+Profiles&tid=ACSDP5Y2018.DP05&hidePreview=true) as a data source for map 1.
+This is a choropleth map of the US using data in 2020 that visualize Covid rates in each county. Depending on the range of rates, each county has a different color. You can view the rate of people of each county by moving your mouse on the map. The primary function of this map is to show the Covid cases through data elements by area. I used [the U.S. Census Bureau](https://data.census.gov/table?g=0100000US$050000&d=ACS+5-Year+Estimates+Data+Profiles&tid=ACSDP5Y2018.DP05&hidePreview=true) as a data source for map 1.
 
 [Here](http://127.0.0.1:5500/map1.html) is a link to the map 1 (Rates map)
 
@@ -19,7 +19,7 @@ This is a proportional symbols map that visulaize counts the number of cases in 
 [Here](http://127.0.0.1:5500/map2.html) is a link to the map 2 (Counts map)
 
 # Acknowledgement
-Thanks to Haochen and other classmate who helped debugging code with this assignment.
+Thanks to Haochen and other classmates who helped me debug the code in this assignment.
 
 
 
