@@ -18,8 +18,5 @@ This is a proportional symbols map that visulaize counts the number of cases in 
 
 [Here](http://127.0.0.1:5500/map2.html) is a link to the map 2 (Counts map)
 
-# Acknowledgement
-Thanks to Haochen and other classmates who helped me debug the code in this assignment.
-
 
 
